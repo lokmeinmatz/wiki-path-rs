@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Warp Handlebars template example</title>
+    </head>
+    <body>
+        <h1>Finde den kürzesten Weg auf Wikipedia</h1>
+        <script>
+            window.onload = () => {
+                document.getElementById("sender").onsubmit = e => {
+                    e.preventDefault()
+                    const from = document.getElementById("start").value.replace(' ', '_')
+                    const to = document.getElementById("target").value.replace(' ', '_')
+                    if (from.length == 0 || to.length == 0) {
+                        return
+                    }
+                    window.location.href = `/?from=${from}&to=${to}`
+                }
+            }
+        </script>
+        <form id="sender">
+            <label for="start">Start:</label><br>
+            <input type="text" id="start" name="start"><br>
+            <label for="target">Last name:</label><br>
+            <input type="text" id="target" name="target"><br><br>
+            <input type="submit" value="Weg finden">
+        </form>
+    </body>
+</html>
